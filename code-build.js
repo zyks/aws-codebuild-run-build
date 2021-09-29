@@ -197,7 +197,9 @@ function inputs2Parameters(inputs) {
 
   const sourceTypeOverride = "GITHUB";
   const sourceLocationOverride = `https://github.com/${owner}/${repo}.git`;
-
+  const artifactsOverride = {
+    type: "NO_ARTIFACTS",
+  }
   const environmentVariablesOverride = Object.entries(process.env)
     .filter(
       ([key]) => key.startsWith("GITHUB_") || envPassthrough.includes(key)
@@ -212,6 +214,7 @@ function inputs2Parameters(inputs) {
     sourceTypeOverride,
     sourceLocationOverride,
     buildspecOverride,
+    artifactsOverride,
     environmentVariablesOverride,
   };
 }
