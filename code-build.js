@@ -28,6 +28,7 @@ function runBuild() {
 
 async function build(sdk, params) {
   // Start the build
+  console.log("PARAMS", params);
   const start = await sdk.codeBuild.startBuild(params).promise();
 
   // Wait for the build to "complete"
@@ -199,7 +200,7 @@ function inputs2Parameters(inputs) {
   const sourceLocationOverride = `https://github.com/${owner}/${repo}.git`;
   const artifactsOverride = {
     type: "NO_ARTIFACTS",
-  }
+  };
   const environmentVariablesOverride = Object.entries(process.env)
     .filter(
       ([key]) => key.startsWith("GITHUB_") || envPassthrough.includes(key)
