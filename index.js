@@ -14,6 +14,7 @@ module.exports = run;
 
 async function run() {
   console.log("*****STARTING CODEBUILD*****");
+  console.log("starting");
   try {
     const build = await runBuild();
     core.setOutput("aws-build-id", build.id);
